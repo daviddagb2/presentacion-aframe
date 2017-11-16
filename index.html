@@ -1,0 +1,828 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Realidad Virtual con WebVR</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+		
+		<meta name="description" content="Framework para Realidad virtual WEBVR">
+		<meta name="author" content="David Gonzalez Blanchard">
+		
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		
+		<style>
+		
+		.txtsmall{
+			font-size: 62% !important;
+			text-align: justify;
+		}
+		
+		.reveal .cta-button {
+				    background: #24CAFF;
+					border-radius: 5px;
+					color: #FAFAFA!important;
+					display: inline-block;
+					padding: 10px 10px!important;
+					vertical-align: middle;
+					font-size: 25px;
+					padding: 20px !important;
+					border: 2px solid #044b52;
+			}
+			
+		.reveal blockquote {
+			display: block;
+			position: relative;
+			width: 100%;
+			margin: 10px auto;
+			padding: 0px 15px;
+			font-style: italic;
+			background: rgba(255,255,255,0.05);
+			box-shadow: 0px 0px 2px rgba(0,0,0,0.2);
+		}
+		
+		
+		
+		</style>
+		
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- SECTION --> 
+				<section>
+					<h1>WebVR</h1>
+					<h3>Introducci&oacute;n a la realidad virtual con A-Frame</h3>
+					<p>
+						<small>presentado por <a href="http://blanchard.space">David Blanchard</a> / <a href="http://twitter.com/daviddagbx">@daviddagbx</a></small>
+					</p>
+				</section>
+				
+								
+				<section>
+					<section>
+					<h2 id="prologue">Introducci&oacute;n</h2>
+					<blockquote>
+					<p>Usaremos <a href="https://glitch.com">Glitch</a>, para probar los ejemplos de <a href="https://webvr.rocks">WebVR</a>! </p>
+					</blockquote>
+					
+					<img class="stretch" src="media/img/glitch1.png" style="height: 286px; width: 518.524px;">
+					
+					</section>
+					
+					<section>
+						
+						<h3>
+						Glitch es una comunidad amigable donde construirás la aplicación de tus sueños,
+						</h3>
+						
+						<p>
+						
+						
+						Con aplicaciones de ejemplo de trabajo para hacer remix, un editor de código para modificarlas, alojamiento y despliegue instantáneos: 
+						cualquiera puede construir una aplicación web en Glitch, de forma gratuita.
+						
+						</p>
+					
+					</section>
+					
+					<section>
+					<h3>Glitch </h3>
+											
+					<ul>
+						<li>Glitch te permite codificar en el navegador sin tener que configurar nada</li>
+						<li>Glitch le permite remezclar proyectos para utilizar los proyectos A-Frame existentes como punto de partida</li>
+						<li>Glitch publica instantáneamente y aloja su sitio con una URL (p. Ej., https://demo-blanchard-web-vr.glitch.me/)</li>
+					</ul>
+					
+					</section>
+					
+					
+					
+					<section>
+					<h3>Glitch </h3>
+											
+					<ul>
+						<li>Glitch actualiza su sitio A-Frame en vivo en cada cambio de código</li>
+						<li>Glitch permite que varias personas codifiquen en el mismo proyecto</li>
+					</ul>
+					
+					</section>
+					
+					
+					<section>
+						<h3>Remix a un proyecto existente  </h3>						
+						<img class="stretch" src="media/img/glitch3.png" style="height: 0px; width: 518.524px;">
+					
+					</section>
+					
+					
+					<section>
+					<h2 id="glitch-mdash-remixing-an-existing-project">Remix a un proyecto existente</h2>
+					<img class="stretch" src="media/img/glitch3.png">
+					<p class="txtsmall">Glitch le permite remezclar o bifurcar un proyecto existente y usarlo como base para su
+					nuevo proyecto. Antes de comenzar, se recomienda vincular Glitch a una cuenta de GitHub. Después de que hagas remix, Glitch te dará un azar
+					nombre de proyecto y URL, que puede cambiar.</p>
+							
+					<p><a href="https://glitch.com/~aframe/" target="_blank" class="cta-button glitch">Remix the A-Frame Starter Glitch</a>  <!-- --></p>
+					</section>
+					
+					
+					
+					
+					<section>
+					<h2>Editando el codigo</h2>
+					<img class="stretch" src="media/img/glitch4.png" style="height: 0px; width: 518.524px;">
+					<p class="txtsmall">Una vez que hayas remezclado el A-Frame Starter Glitch, mira dónde editarás tu código. 
+					Dale un vistazo y verás que incluso puedes editar el código del servidor, cargar activos, crear archivos nuevos 
+					o invitar a otros a editar contigo..</p>
+														
+					</section>
+					
+					
+					<section>
+					<h2>Inspeccionando el proyecto</h2>
+					<img class="stretch" src="media/img/glitch5.png" style="height: 0px; width: 518.524px;">
+					<p class="txtsmall">Después de examinar el editor, vea el proyecto en vivo.</p>
+														
+					</section>
+					
+					
+					<section>
+					<h2>Exportando el proyecto</h2>
+					<img class="stretch" src="media/img/glitch6.png" style="height: 0px; width: 518.524px;">
+					<p class="txtsmall">En cualquier momento, si desea descargar su proyecto o exportarlo a GitHub, puede hacerlo desde el menú Opciones avanzadas. 
+					La descarga le dará un archivo <b>.tgz</b> que puede descomprimir. 
+					Para los proyectos A-Frame, a lo importante est&aacute; en la carpeta public / </p>
+														
+					</section>
+					
+					
+					
+				</section>
+							
+				
+			<section>		
+				<section data-background="media/img/blackvr.jpg" data-background-image="media/img/blackvr.jpg"  ><!-- Title slide. -->
+				
+				  <h1>A-Frame</h1>
+				  <h5>Un framework web para construir experiencias en realidad virtual</h5>
+				  <p class="talk-info">
+					<b><a href="https://aframe.io">aframe.io</a></b>
+				  </p>
+
+				</section>
+				
+				<section>
+					<h2>Probando los ejemplos de A-Frame</h2>
+					<img class="stretch" src="media/img/examples.gif" style="height: 0px; width: 518.524px;">
+										
+		<p class="txtsmall">Juega con los ejemplos en tu pc o en tu smartphone desde la <a href="https://aframe.io"> p&aacute;gina de A-Frame</a>, 
+		<a href="https://aframe.io/blog/">el blog de A-Frame</a>, o
+		<a href="https://github.com/aframevr/awesome-aframe">el sitio awesome-aframe</a>. 
+		tambien puedes consultar
+		<a href="https://webvr.rocks">webvr.rocks</a> para mas informaci&oacute;n sobre webvr y los dispositivos compatibles</p>
+														
+				</section>
+			</section>	
+			
+			
+			
+			
+			
+			
+			
+			<!-- ...................................................... -->
+			
+			
+			
+			
+<section>
+
+<section><h2 id="start-with-hello-webvr-">Start with <em>Hello, WebVR</em></h2>
+<blockquote>
+<p>A-Frame provides easy-to-use HTML elements for starters called
+<a href="https://aframe.io/docs/0.5.0/primitives/">primitives</a>. In the sections below,
+we'll modify basic meshes through HTML attributes (e.g., change colors,
+positions, rotations, scale) and get a feel for the workflow.</p>
+</blockquote>
+<img src="media/img/hellowebvr2.jpg">
+<img class="stretch" src="media/img/hellowebvr.jpg" style="height: 309px; width: 546.176px;">
+</section>
+
+
+
+
+<section><h2 id="start-with-hello-webvr-mdash-position">Start with <em>Hello, WebVR</em> — Position</h2>
+<blockquote>
+<p>Position defines where objects are in 3D space (X, Y, Z) in meters. Change
+the <code>position</code> of the objects via the <code>position</code> HTML attribute values. <a href="https://aframe.io/docs/master/components/position.html">Read about
+positions</a>.</p>
+</blockquote>
+<p><a href="https://glitch.com/~aframe-school-position" target="_blank" class="cta-button glitch">Remix Lesson on Glitch</a>  <!-- --></p>
+<ol>
+<li>Move the cylinder left by <em>decreasing</em> the <code>position</code>'s X value</li>
+<li>Move the box up by <em>increasing </em> the <code>position</code>'s Y value</li>
+<li>Move the sphere back by <em>decreasing</em> the <code>position</code>'s Z value</li>
+<li><strong>Extra Credit:</strong> Add <code>&lt;a-ring&gt;</code> as a child of <code>&lt;a-sphere&gt;</code> and give it a position to see relative positions</li>
+</ol>
+<img class="stretch" src="media/img/positionresult.jpg" style="height: 184px; width: 241.244px;">
+<p><a href="https://aframe-school-position.glitch.me/solution.html" target="_blank" class="cta-button">View Result</a>  <!-- --></p>
+</section>
+
+
+
+<section>
+<h2 id="start-with-hello-webvr-mdash-rotation">Start with <em>Hello, WebVR</em> — Rotation</h2>
+<blockquote>
+<p>Rotation defines orientation of objects in 3D space (about the X, Y, Z axes)
+in degrees. Use the right-hand rule to spatially visualize rotation. <a href="https://aframe.io/docs/master/components/rotation.html">Read about
+rotations</a>.</p>
+</blockquote>
+<p><a href="https://glitch.com/~aframe-school-rotation" target="_blank" class="cta-button glitch">Remix Lesson on Glitch</a>  <!-- --></p>
+<ol>
+<li>Rotate the cylinder around the X axis so we see the bottom</li>
+<li>Rotate the box around the Y axis so the box is facing straight</li>
+<li><strong>Extra Credit:</strong> Wrap the scene contents in <code>&lt;a-entity&gt;</code> (like a <code>&lt;div&gt;</code>)
+and give it a rotation to see relative rotations</li>
+</ol>
+<img class="stretch" src="media/img/rotationresult.jpg" style="height: 184px; width: 211.788px;">
+<p><a href="https://aframe-school-rotation.glitch.me/solution.html" target="_blank" class="cta-button">View Result</a>  <!-- --></p>
+</section>
+
+
+<section>
+
+<h2 id="start-with-hello-webvr-mdash-add-primitives">Start with <em>Hello, WebVR</em> — Add Primitives</h2>
+<blockquote>
+<p>Add primitives the scene by adding HTML elements under <code>&lt;a-scene&gt;</code>.  <a href="https://aframe.io/docs/0.5.0/primitives/">Read
+about primitives</a>.</p>
+</blockquote>
+<p><a href="https://glitch.com/~aframe-school-primitives" target="_blank" class="cta-button glitch">Remix Lesson on Glitch</a>  <!-- --></p>
+<ol>
+<li>Add <a href="https://aframe.io/docs/0.5.0/primitives/a-torus-knot.html"><code>&lt;a-torus-knot&gt;</code></a> to the left</li>
+<li>Add <a href="https://aframe.io/docs/0.5.0/primitives/a-dodecahedron.html"><code>&lt;a-dodecahedron&gt;</code></a> to the right</li>
+<li>Add <a href="https://aframe.io/docs/0.5.0/primitives/a-text.html"><code>&lt;a-text&gt;</code></a> aligned in the center</li>
+</ol>
+<img class="stretch" src="https://cloud.githubusercontent.com/assets/674727/24266010/9c57cbe4-0fc2-11e7-968f-168f3649d109.png" style="height: 463.311px; width: 960px;">
+<p><a href="https://aframe-school-primitives.glitch.me/solution.html" target="_blank" class="cta-button">View Result</a>  <!-- --></p>
+</section>
+
+
+
+</section>
+			
+			
+			
+			
+			
+			<!-- ....................................................... -->
+			
+			
+			
+			<!-- ....................................................... -->
+			
+			
+			<section>
+			
+			
+			<section>
+				<h2 id="add-textures-mdash-uploading-assets">Add Textures — Uploading Assets</h2>
+				<blockquote>
+				<p>We'll be adding image textures to meshes to more appearance than a flat color.
+				<a href="https://aframe.io/docs/0.5.0/introduction/faq.html#where-can-i-find-assets">Find your own images
+				online</a>,
+				and upload them through the assets section in Glitch or through the uploader on
+				<a href="https://cdn.aframe.io">cdn.aframe.io</a>. Wherever else you may upload, make sure
+				it's being served with
+				<a href="https://developer.mozilla.org/docs/Web/HTTP/Access_control_CORS">CORS</a> and
+				over HTTPS.</p>
+				</blockquote>
+				<img class="stretch" src="media/img/glitchasset.jpg" style="height: 384px; width: 561.231px;">
+				<p>In the Glitch below <strong>↓</strong>, some assets will already be provided in the
+				assets section (pictured above).</p>
+			</section>
+
+
+
+			<section>
+				<h2 id="add-textures-mdash-image-textures">Add Textures — Image Textures</h2>
+				<blockquote>
+				<p>Fill in the <code>src</code> HTML attributes with image URLs. <a href="https://aframe.io/docs/0.5.0/guides/building-a-basic-scene.html#applying-an-image-texture">Read about applying an
+				image texture</a>.</p>
+				</blockquote>
+				<p><a href="https://glitch.com/~aframe-school-textures/" target="_blank" class="cta-button glitch">Remix Lesson on Glitch</a>  <!-- --></p>
+				<ol>
+				<li>Add an image texture to the ground, <code>&lt;a-plane&gt;</code></li>
+				<li>Add image textures to <code>&lt;a-box&gt;</code>es</li>
+				<li>Add an image texture to <code>&lt;a-sphere&gt;</code></li>
+				<li>Add an image texture to <code>&lt;a-cone&gt;</code></li>
+				<li>Add an image texture to the background, <code>&lt;a-sky&gt;</code>. Find <a href="https://www.flickr.com/groups/equirectangular/">360° images from FLickr</a></li>
+				</ol>
+				<img class="stretch" src="media/img/texture.jpg" style="height: 184px; width: 270.588px;">
+				<p><a href="https://aframe-school-textures.glitch.me/solution.html" target="_blank" class="cta-button">View Result</a>  <!-- --></p>
+			</section>
+
+</section>
+			
+			<!-- ....................................................... -->
+			
+			
+			
+			<section>			
+			
+			<section><h2 id="open-the-a-frame-inspector">Open the A-Frame Inspector</h2>
+				<blockquote>
+				<p>Hit <strong><code>&lt;ctrl&gt; + &lt;alt&gt; + i</code></strong> on <strong>any</strong> A-Frame scene to pop open a visual
+				editor, just like your browser's Dev Tools!  Try the Inspector on some of the
+				<a href="https://aframe.io/examples/">homepage examples</a>. <a href="https://aframe.io/docs/master/guides/using-the-aframe-inspector.html">Read about the
+				Inspector</a>.</p>
+				</blockquote>
+				<img class="stretch" src="media/img/inspector.gif" style="height: 476px; width: 714px;">
+			</section>
+
+
+
+
+			<section>
+				<h2 id="open-the-a-frame-inspector-mdash-change-component-values">Open the A-Frame Inspector — Change Component Values</h2>
+				<blockquote>
+				<p>Modify an entity by modifying its components on the right-hand panel. The
+				Inspector knows about all A-Frame components, including community components.
+				 This example includes an external <a href="https://www.npmjs.com/package/aframe-text-geometry-component">text-geometry
+				component</a>, which
+				the Inspector can modify the values of live.</p>
+				</blockquote>
+				<p><a href="https://aframe-vaporwave.glitch.me" target="_blank" class="cta-button glitch">Open Example on Glitch</a>  <!-- --></p>
+				<ol>
+				<li>Select one of the entities with text in the example</li>
+				<li>Change the <a href="https://www.npmjs.com/package/aframe-text-geometry-component"><code>text-geometry</code> component's</a> <code>value</code> property</li>
+				</ol>
+				<img class="stretch" src="media/img/inspectorchange.jpg" style="height: 296px; width: 547.394px;">
+			</section>
+
+
+
+			<section>
+			
+			<h2>Open the A-Frame Inspector — Attach Components from the Registry</h2>
+			<blockquote>
+			<p>Use <a href="https://github.com/donmccurdy/aframe-physics-system">physics components</a>
+			from the <a href="https://aframe.io/registry/">Registry</a> to add gravity and collisions.
+			The Registry is a curated collection of A-Frame components. And the Inspector
+			is hooked up to the Registry so we can add components from the Registry in the
+			entity panel.</p>
+			</blockquote>
+			<p><a href="https://aframe-vaporwave.glitch.me" target="_blank" class="cta-button glitch">Open Example on Glitch</a>  <!-- --></p>
+			<ol>
+			<li>Add the <code>static-body</code> component to ground grid</li>
+			<li>Add the <code>dynamic-body</code> component to the torus knot (the purple pretzel in the back)</li>
+			<li>Increase the Y-position of the torus knot to make it higher up</li>
+			<li>Exit the Inspector</li>
+			</ol>
+			<img class="stretch" src="media/img/inspectorregistry.gif" style="height: 208px; width: 312px;">
+			</section>
+
+
+			</section>
+			
+			
+			
+			
+			<!-- ....................................................... -->
+			
+			<section>
+			
+			
+			<section>
+				<h2>Compose with Entity-Component — Break Primitives Down</h2>
+				<blockquote>
+				<p>Behind the easy-to-use primitive elements, A-Frame is based on an
+				entity-component architecture. Decompose the primitive elements in the
+				<em>Hello, WebVR</em> example to <code>&lt;a-entity&gt;</code>s with their fundamental components.</p>
+				</blockquote>
+				<p><a href="https://glitch.com/~aframe-school-ecs" target="_blank" class="cta-button glitch">Remix Lesson on Glitch</a>  <!-- --></p>
+				<ol>
+				<li>Convert <code>&lt;a-box&gt;</code> to <code>&lt;a-entity&gt;</code> with <a href="https://aframe.io/docs/0.5.0/components/geometry.html">geometry component</a> and <a href="https://aframe.io/docs/0.5.0/components/material.html">material component</a>. Configure the geometry component to be <code>primitive: box</code></li>
+				<li>Convert <code>&lt;a-sphere&gt;</code> to <code>&lt;a-entity&gt;</code> with geometry component and material component. Configure the geometry component to be <code>primitive: sphere</code></li>
+				<li>Convert <code>&lt;a-cylinder&gt;</code> to <code>&lt;a-entity&gt;</code> with geometry component and material component. Configure the geometry component to be <code>primitive: cylinder</code></li>
+				<li>Convert <code>&lt;a-plane&gt;</code> to <code>&lt;a-entity&gt;</code> with geometry component and material component. Configure the geometry component to be <code>primitive: plane</code></li>
+				<li>Convert <code>&lt;a-sky&gt;</code> to <code>&lt;a-entity&gt;</code> with geometry component and material component. Configure the geometry component to be <code>primitive: sphere</code> with a large <code>radius: 3000</code>, and configure the material component to be <code>shader: flat</code> so we don't do expensive lighting calculations when we just need a flat color</li>
+				</ol>
+				<p><a href="https://aframe-school-ecs.glitch.me/solution.html" target="_blank" class="cta-button">View Result</a>  <!-- --></p>
+			</section>
+
+
+
+			<section>
+				<h2>Compose with Entity-Component — Add a Light Source Sphere</h2>
+				<blockquote>
+				<p>Use the entity-component pattern to add a sphere that also acts as a point
+				light source. Mix together the geometry, material, and light components to
+				compose this type of object.</p>
+				</blockquote>
+				<ol>
+				<li>Look for <code>&lt;a-entity id="lightSphere"&gt;</code></li>
+				<li>Attach the <a href="https://aframe.io/docs/0.5.0/components/geometry.html">geometry component</a> configured to use <code>primitive: sphere</code> to the entity</li>
+				<li>Attach the <a href="https://aframe.io/docs/0.5.0/components/material.html">material component</a> configured to use <code>color: #FFF</code> and <code>shader: flat</code> to the entity</li>
+				<li>Attach the <a href="https://aframe.io/docs/0.5.0/components/light.html">light component</a> configured to use <code>type: point</code> to the entity</li>
+				<li><strong>Extra Credit:</strong> Add the animation component from <a href="https://aframe.io/registry/">the Registry</a> via a <code>&lt;script&gt;</code> tag. Attach the animation configured to use <code>property: position</code> and <code>dir: alternate</code> and <code>loop: true</code> and provide a position value for <code>to: &lt;POSITION&gt;</code></li>
+				</ol>
+				<p><a href="https://glitch.com/~aframe-school-ecs-light-sphere" target="_blank" class="cta-button glitch">Remix Lesson on Glitch</a>  <!-- --></p>
+				<img class="stretch" src="https://cloud.githubusercontent.com/assets/674727/24060160/2c53a604-0b0f-11e7-9386-f83a3a9b4cfc.gif" style="height: 106px; width: 159px;">
+				<p><a href="https://aframe-school-ecs-light-sphere.glitch.me/solution.html" target="_blank" class="cta-button">View Result</a>  <!-- --></p>
+			</section>
+
+
+
+			</section>
+						
+						
+			
+			<!-- ....................................................... -->
+			
+			
+			<section><h2 id="extend-with-entity-component-mdash-from-the-registry">Extend with Entity-Component — From the Registry</h2>
+				<blockquote>
+				<p><a href="https://aframe.io/registry/">The Registry</a> is a great place to grab cool
+				components that the community has added to A-Frame. Sort of like third-party
+				plugins. Find community components from the Registry, copy their JS links,
+				include them via a <code>&lt;script&gt;</code> tag, and use them straight from HTML.</p>
+				</blockquote>
+				<ol>
+				<li>Include <a href="https://www.npmjs.com/package/aframe-particle-system-component">Particle
+				System</a>. Attach
+				<code>&lt;a-entity&gt;</code>s with <code>particle-system</code> components configured to <code>preset: default</code>
+				and <code>preset: snow</code>. Open the Inspector to play with the values!</li>
+				<li>Include <a href="https://www.npmjs.com/package/aframe-animation-component">Animation</a>. Attach
+				animation to the sphere to throb its scale by configuring <code>animation</code> component
+				with <code>property: scale</code>, <code>loop: true</code>, and <code>to: 1.1 1.1 1.1</code></li>
+				<li>Include <a href="https://www.npmjs.com/package/aframe-outline-effect">Outline Effect</a>. Drop in the
+				<code>&lt;script&gt;</code> and attach the <code>outline</code> component to the scene</li>
+				</ol>
+				<p><a href="https://glitch.com/~aframe-school-registry" target="_blank" class="cta-button glitch">Remix Lesson on Glitch</a>  <!-- --></p>
+				<img class="stretch" src="media/img/registryexample.gif" style="height: 132px; width: 198px;">
+				<p><a href="https://aframe-school-registry.glitch.me/solution.html" target="_blank" class="cta-button">View Result</a>  <!-- --></p>
+			</section>
+			
+			
+			<!-- ....................................................... -->
+			
+			
+			
+			
+			
+				<section>
+				
+				
+			<section>
+				<h2 id="use-javascript">Use JavaScript</h2>
+				<blockquote>
+				<p>Use JavaScript and DOM APIs to programmatically modify the scene and its
+				entities. A-Frame is not just HTML; A-Frame provides access to JavaScript,
+				DOM APIs, and three.js underneath for full control.  <a href="https://aframe.io/docs/0.5.0/guides/using-javascript-and-dom-apis.html">Read about <em>Using
+				JavaScript and DOM APIs</em> with
+				A-Frame</a>.</p>
+				</blockquote>
+				<p><a href="https://glitch.com/~aframe-school-js" target="_blank" class="cta-button glitch">Remix Lesson on Glitch</a>  <!-- --></p>
+				<img class="stretch" src="media/img/js.jpg" style="height: 250px; width: 718.064px;">
+				<p>To see JavaScript logs, we can open the browser's development console by
+				right-clicking the page, clicking <em>Inspect</em> or <em>Inspect Element</em>, and then
+				clicking the <em>Console</em> tab. When viewing solutions, we can see the results
+				through the browser console.</p>
+			</section>
+
+
+			<section>
+				<h2 id="use-javascript-mdash-getting-entities">Use JavaScript — Getting Entities</h2>
+				<blockquote>
+				<p>Use
+				<a href="https://developer.mozilla.org/docs/Web/API/Document/querySelector"><code>document.querySelector()</code></a>
+				and
+				<a href="https://developer.mozilla.org/docs/Web/API/Document/querySelectorAll"><code>document.querySelectorAll()</code></a>
+				to get a reference to the scene and its entities.  <a href="https://aframe.io/docs/0.5.0/guides/using-javascript-and-dom-apis.html#getting-entities-by-querying-and-traversing">Read about querying for
+				entities</a>.</p>
+				</blockquote>
+				<p><a href="https://glitch.com/~aframe-school-js" target="_blank" class="cta-button glitch">Remix Lesson on Glitch</a>  <!-- --></p>
+				<ol>
+				<li>Get a reference to the <code>&lt;a-scene&gt;</code> element using <code>var sceneEl = document.querySelector('a-scene');</code></li>
+				<li>Get a reference to all <code>&lt;a-entity&gt;</code> elements using <code>sceneEl.querySelectorAll('a-entity');</code></li>
+				<li>Get a reference to the box entity using <code>sceneEl.querySelector('#box');</code></li>
+				<li>Get a reference to the sphere and cylinder entities in one <code>.querySelectorAll()</code> call by using multi-element selector
+				. Get a reference to the sphere and cylinder entities in one <code>.querySelectorAll()</code> call by adding and selecting HTML classes</li>
+				</ol>
+				<p><a href="https://aframe-school-js.glitch.me/solution.html" target="_blank" class="cta-button">View Result</a>  <!-- --></p>
+			</section>
+
+
+
+		<section>
+			<h2>Use JavaScript — Modifying Entities</h2>
+			<blockquote>
+			<p>Use
+			<a href="https://aframe.io/docs/0.5.0/core/entity.html#setattribute-attr-value-componentattrvalue"><code>Entity.setAttribute()</code></a>
+			to modify entities after retrieving them from the previous exercise. <a href="https://aframe.io/docs/0.5.0/guides/using-javascript-and-dom-apis.html#modifying-an-entity">Read
+			about modifying
+			entities</a>.</p>
+			</blockquote>
+			<p><a href="https://glitch.com/~aframe-school-js" target="_blank" class="cta-button glitch">Remix Lesson on Glitch</a>  <!-- --></p>
+			<ol>
+			<li>Change the box entity's <code>rotation</code> component</li>
+			<li>Change the cylinder entity's <code>geometry</code> component's <code>height</code> property</li>
+			<li>Change the sphere entity's <code>material</code> component's <code>metalness</code> property</li>
+			</ol>
+			<p><a href="https://aframe-school-js.glitch.me/solution2.html" target="_blank" class="cta-button">View Result</a>  <!-- --></p>
+		</section>
+
+
+
+
+		<section>
+			<h2>Use JavaScript — Creating Entities</h2>
+			<blockquote>
+			<p>Use <a href="https://developer.mozilla.org/docs/Web/API/Document/createElement"><code>document.createElement()</code></a>
+			to create entities, <code>.setAttribute()</code> to configure them, and <code>.appendChild()</code>
+			to add them to the scene.  <a href="https://aframe.io/docs/0.5.0/guides/using-javascript-and-dom-apis.html#creating-an-entity-with-createelement">Read about creating
+			entities</a>.</p>
+			</blockquote>
+			<p><a href="https://glitch.com/~aframe-school-js" target="_blank" class="cta-button glitch">Remix Lesson on Glitch</a>  <!-- --></p>
+			<ol>
+			<li>In a JavaScript <code>for</code> loop, create and add 50 <code>&lt;a-box&gt;</code> elements with
+			random positions and scales (use <code>Math.random()</code>)</li>
+			</ol>
+			<p><a href="https://aframe-school-js.glitch.me/solution3.html" target="_blank" class="cta-button">View Result</a>  <!-- --></p>
+		</section>
+
+
+
+		<section>
+			<h2 id="use-javascript-mdash-handling-events">Use JavaScript — Handling Events</h2>
+			<blockquote>
+			<p>Use
+			<a href="https://developer.mozilla.org/docs/Web/API/EventTarget/addEventListener"><code>.addEventListener()</code></a>
+			to register a handler function that will be called when an event is emitted.
+			Then manually emit that event to see that handler function execute. Later we
+			can use event listeners to change the scene based on user input or other
+			events. <a href="https://aframe.io/docs/0.5.0/guides/using-javascript-and-dom-apis.html#events-and-event-listeners">Read about events and event listeners with
+			A-Frame</a>.</p>
+			</blockquote>
+			<p><a href="https://glitch.com/~aframe-school-js" target="_blank" class="cta-button glitch">Remix Lesson on Glitch</a>  <!-- --></p>
+			<ol>
+			<li>Register an event listener on the box to listen to the <code>foo</code> event. In the
+			handler function, change the box's color</li>
+			<li>Emit the <code>foo</code> event with
+			<a href="https://aframe.io/docs/0.5.0/core/entity.html#emit-name-detail-bubbles"><code>Entity.emit()</code></a>
+			and see the box change its color</li>
+			</ol>
+			<p><a href="https://aframe-school-js.glitch.me/solution4.html" target="_blank" class="cta-button">View Result</a>  <!-- --></p>
+		</section>
+
+		</section>
+			
+			
+		<!-- ....................................................... -->	
+			
+			
+		<section>
+		
+		
+		<section>
+			<h2>Add Gaze-Based Cursor Interactions — Add Cursor Entity</h2>
+			<blockquote>
+			<p>Use the gaze-based <a href="https://aframe.io/docs/0.5.0/components/cursor.html"><code>cursor</code>
+			component</a> to provide
+			the ability to interact with entities (primarily for smartphones).  <a href="https://aframe.io/docs/0.5.0/guides/building-with-components.html">Read
+			about building a 360° image
+			gallery</a>.</p>
+			</blockquote>
+			<p><a href="https://glitch.com/~aframe-school-cursor" target="_blank" class="cta-button glitch">Remix Lesson on Glitch</a>  <!-- --></p>
+			<p>This lesson has all the event listeners hooked up already. We just need to add
+			an entity with the <code>cursor</code> component which will provide those events based on
+			user input.  Note these events are not provided by the browser, but through
+			A-Frame.</p>
+			<ol>
+			<li>Add <a href="https://aframe.io/docs/0.5.0/components/camera.html"><code>&lt;a-camera&gt;</code></a> entity.
+			Previously A-Frame was providing a default camera</li>
+			<li>Add <a href="https://aframe.io/docs/0.5.0/components/cursor.html"><code>&lt;a-cursor&gt;</code></a> entity
+			as a child underneath the camera entity</li>
+			<li>Drag the camera around the click on the panels on desktop. On smartphones,
+			stare at the panels to trigger clicks (i.e., gaze-based)</li>
+			</ol>
+			<img class="stretch" src="media/img/gaze.gif" style="height: 80px; width: 119.867px;">
+			<p><a href="https://aframe-school-cursor.glitch.me/solution.html" target="_blank" class="cta-button glitch">View Result</a>  <!-- --></p>
+		</section>
+
+
+
+		<section>
+			<h2 id="add-gaze-based-cursor-interactions-mdash-handle-events">Add Gaze-Based Cursor Interactions — Handle Events</h2>
+			<blockquote>
+			<p>Use the <code>click</code>, <code>mouseenter</code>, <code>mouseleave</code> events provided by the gaze-based
+			<a href="https://aframe.io/docs/0.5.0/components/cursor.html"><code>cursor</code> component</a> to
+			change the properties of an object.</p>
+			</blockquote>
+			<p>The Glitch code will have the project structure set up. We can add JavaScript
+			code inside the <code>handle-events</code> component, marked by the code comments.</p>
+			<p><a href="https://glitch.com/~aframe-school-cursor-handler" target="_blank" class="cta-button glitch">Remix Lesson on Glitch</a>  <!-- --></p>
+			<ol>
+			<li>Attach our <code>controller-event-handler</code> to the cubes. We can attach to all of them at once through the mixin</li>
+			<li>Add an event listener to change the box's color on <code>mouseenter</code> event</li>
+			<li>Add an event listener to restore the box's color on <code>mouseleave</code> event</li>
+			</ol>
+			<img class="stretch" src="media/img/gazehandler.gif" style="height: 106px; width: 133.442px;">
+			<p><a href="https://aframe-school-cursor-handler.glitch.me/solution.html" target="_blank" class="cta-button glitch">View Result</a>  <!-- --></p>
+		</section>
+
+
+		</section>	
+			
+			
+		<!-- ....................................................... -->
+		
+
+		
+			
+		<section>
+		
+		<section><h2 id="add-3d-models-mdash-gltf-model">Add 3D Models — glTF Model</h2>
+			<blockquote>
+			<p>3D models are like the images of 3D and VR applications, although a bit
+			heavier. A 3D model is created beforehand in a 3D modeling program such as
+			<a href="https://www.blender.org/">Blender</a> and consists of vertices, textures,
+			materials. We recommend using <a href="https://github.com/KhronosGroup/glTF">glTF</a>, a
+			relatively new 3D file format standard tailored for the Web. glTF is like the
+			JPG of 3D models.</p>
+			</blockquote>
+			<p><a href="https://glitch.com/~aframe-school-gltf-model" target="_blank" class="cta-button glitch">Remix Lesson on Glitch</a>  <!-- --></p>
+			<ol>
+			<li>Add the <code>https://cdn.aframe.io/test-models/models/virtualcity/VC.gltf</code> to
+			the <code>&lt;a-asset-item id="cityModel"&gt;</code>'s <code>src</code> attribute to preload the model</li>
+			<li>Add <code>#cityModel</code> to the <code>&lt;a-gltf-model&gt;</code>'s <code>src</code> attribute to set and add the model</li>
+			</ol>
+			<img class="stretch" src="https://cloud.githubusercontent.com/assets/674727/24275925/63067074-0ff0-11e7-9440-7c855b9ea0fd.png" style="height: 158px; width: 290.938px;">
+			<p><a href="https://aframe-school-gltf-model.glitch.me/solution.html" target="_blank" class="cta-button">View Result</a>  <!-- --></p>
+		</section>
+
+
+		<section>
+			<h2>Add 3D Models — glTF Model Animations</h2>
+			<blockquote>
+			<p>Models can come with animations. The model provided above has many animations
+			of ships zooming across the city. In the previous Glitch, we've provided a simple
+			<code>play-all-model-animations</code> component that we can attach to our model to play
+			its animations. Continue working from your current Glitch.</p>
+			</blockquote>
+			<ol>
+			<li>Include the <code>animation-mixer</code> component via a <code>&lt;script&gt;</code> in the
+			<code>&lt;head&gt;</code> after the A-Frame script. This component is currently in the Registry,
+			and may one day be included with A-Frame. <code>https://unpkg.com/aframe-extras.animation-mixer@3.4.0/dist/aframe-extras.animation-mixer.js</code></li>
+			<li>Attach the <code>animation-mixer</code> component to the <code>&lt;a-gltf-model&gt;</code> by
+			setting it via an HTML attribute <code>animation-mixer</code>. By default, this will play all
+			the animations of the model at once.</li>
+			</ol>
+			<img class="stretch" src="media/img/gltf.gif" style="height: 178px; width: 267px;">
+			<p><a href="https://aframe-school-gltf-model.glitch.me/solution2.html" target="_blank" class="cta-button">View Result</a>  <!-- --></p>
+		</section>
+
+
+		<section>
+			<h2>Add 3D Models — Uploading 3D Models</h2>
+			<blockquote>
+			<p>If you have a model of your own, it can be tricky to upload it to a CDN since
+			it consists of multiple files that reference each other. So far the easiest
+			way we've found is to dump them into a GitHub repo, publish the repo's master
+			branch to GitHub Pages, and use <code>rawgit.com</code> to serve them. Alternatively,
+			set up Amazon S3. More to come.</p>
+			</blockquote>
+		</section>
+
+
+		</section>
+		
+		
+		
+		<!-- ......................TRACKED CONTROL................................. -->
+		
+		
+		
+		<section>
+		
+		<section>
+		
+			<h2 id="add-tracked-controls-mdash-add-hand-controls">Add Tracked Controls — Add Hand Controls</h2>
+			<blockquote>
+			<p>Tracked hand controls provide immersion and interactivity with hand
+			controllers. In the following Glitch, we've pre-recorded hand control
+			movements and button presses with <a href="https://github.com/dmarcos/aframe-motion-capture-components">A-Frame Motion
+			Capture</a>.
+			Now we just have to add the hands and handle the interaction events.</p>
+			</blockquote>
+			<p><a href="https://glitch.com/~aframe-school-hand-controls" target="_blank" class="cta-button glitch">Remix Lesson on Glitch</a>  <!-- --></p>
+			<ol>
+			<li>Find <code>&lt;a-entity id="left"&gt;</code> and add the <a href="https://aframe.io/docs/0.5.0/components/hand-controls.html">hand-controls component</a>
+			configured to the left hand (<code>hand-controls="left"</code>)</li>
+			<li>Find <code>&lt;a-entity id="right"&gt;</code> and add the hand-controls component
+			configured to the right hand (<code>hand-controls="right"</code>)</li>
+			<li>View the result and see the hands moving with pre-recorded motions</li>
+			</ol>
+			<img class="stretch" src="media/img/trackedcontrols.gif" style="height: 132px; width: 198px;">
+			<p><a href="https://aframe-school-hand-controls.glitch.me/solution.html" target="_blank" class="cta-button">View Result</a>  <!-- --></p>
+		</section>
+
+
+
+		<section>
+
+			<h2 id="add-tracked-controls-mdash-add-interactivity">Add Tracked Controls — Add Interactivity</h2>
+			<blockquote>
+			<p>There are many components to add interactivity to hand controls.
+			<a href="https://github.com/bryik/aframe-controller-cursor-component">controller-cursor</a>,
+			<a href="https://github.com/aframevr/aframe/tree/master/examples/showcase/tracked-controls/components">aabb-collider +
+			grab</a>,
+			<a href="https://github.com/wmurphyrd/aframe-super-hands-component">super-hands</a>. For
+			this lesson, we'll use controller-cursor that acts as a pointing laser for
+			each hand. Continue from your previous Glitch.</p>
+			</blockquote>
+			<ol>
+			<li>Add <code>controller-cursor</code> component to both hands</li>
+			<li>In the <code>controller-event-handler</code> component, change the color of the boxes
+			when they are hovered over with the <code>mouseenter</code> event, and restore the color
+			with the <code>mouseleave</code> event</li>
+			</ol>
+			<img class="stretch" src="media/img/trackedcontrols2.gif" style="height: 256px; width: 382.724px;">
+			<p><a href="https://aframe-school-hand-controls.glitch.me/solution2.html" target="_blank" class="cta-button">View Result</a>  <!-- --></p>
+		</section>
+
+		</section>
+		
+		
+		
+		
+		
+		
+		
+		
+		<!-- ....................................................... -->
+			
+			
+			
+		<section>
+			<h2 id="congratulations-">Felicitaciones!</h2>
+			<p>Con esto ya tienes los conocimientos b&aacute;sicos para entrar en el mundo de la realidad virtual con WebVR.</p>
+			<img class="stretch" src="https://cdn.hackaday.io/images/4174761433219325627.png" style="height: 466px; width: 828.444px;">
+			<p>puedes referirte a la <a href="https://aframe.io/docs/">documentaci&oacute;n</a> para mas guias y volverte un experto</p>
+		</section>
+			
+			
+			
+		<!-- ........................................................ -->	
+			
+			
+		<section data-background="media/img/blackvr.jpg" data-background-image="media/img/blackvr.jpg"  ><!-- Title slide. -->
+				
+				  <h1>Blanchard.space</h1>
+				  <h5>Sitio web personal sobre tecnologías, juegos y eventos</h5>
+				  <p class="talk-info">
+					<b><a href="https://blanchard.space">blanchard.space</a></b>
+				  </p>
+		</section>
+				
+		<!-- ........................................................ -->		
+				
+			
+				
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
