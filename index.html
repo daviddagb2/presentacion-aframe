@@ -7,7 +7,7 @@
 		<title>Realidad Virtual con WebVR</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/moon.css">
+		<link rel="stylesheet" href="css/theme/white.css">
 		
 		<meta name="description" content="Framework para Realidad virtual WEBVR">
 		<meta name="author" content="David Gonzalez Blanchard">
@@ -68,7 +68,14 @@
 			margin-top: 20px;
 		}
 		
+		.wheader{
+			color: white !important;
+			text-transform: uppercase !important;
+		}
 		
+		.reveal h2 {
+			font-size: 45px;
+		}
 		
 		</style>
 		
@@ -97,7 +104,7 @@
 				
 			<section data-background-video="media/video/virtualreality.mp4" data-background-video-loop="true" data-background-video-muted="true">
 				
-				<h1 id="virtual-reality">Realidad virtual</h1>
+				<h1 id="virtual-reality" class="wheader">Realidad virtual</h1>
 					<!-- -->
 					<aside class="notes"><ul>
 					<li>Preguntar cuantos han probado con VR</li>
@@ -263,10 +270,10 @@
 			<section data-background-transition="zoom">		
 				<section data-background="media/img/blackvr.jpg" data-background-image="media/img/blackvr.jpg"  ><!-- Title slide. -->
 				
-				  <h1>A-Frame</h1>
-				  <h5>Un framework web para construir experiencias en realidad virtual</h5>
+				  <h1 class="wheader">A-Frame</h1>
+				  <h5 class="wheader">Un framework web para construir experiencias en realidad virtual</h5>
 				  <p class="talk-info">
-					<b><a href="https://aframe.io">aframe.io</a></b>
+					<b><a href="https://aframe.io">https://aframe.io</a></b>
 				  </p>
 
 				</section>
@@ -299,7 +306,7 @@
 
 <section><h2 id="start-with-hello-webvr-">Iniciar con el<em>hola mundo en, WebVR</em></h2>
 <blockquote>
-<p>A-Frame proporciona elementos HTML fáciles de usar para principiantes llamados
+<p style="font-size: 23px;text-align: justify;">A-Frame proporciona elementos HTML fáciles de usar para principiantes llamados
 <a href="https://aframe.io/docs/0.5.0/primitives/">primitivas</a>.Podemos modificar las mallas básicas mediante atributos HTML (por ejemplo, cambiar colores, posiciones, rotaciones, escala).</p>
 </blockquote>
 <img src="media/img/hellowebvr2.jpg">
@@ -533,15 +540,22 @@ rotations</a>.</p>
 			
 			
 			<section>
-				<h2>Compose with Entity-Component — Break Primitives Down</h2>
+				<h2>Entidad-Componente</h2>
 				<blockquote>
-				<p>Behind the easy-to-use primitive elements, A-Frame is based on an
-				entity-component architecture. Decompose the primitive elements in the
-				<em>Hello, WebVR</em> example to <code>&lt;a-entity&gt;</code>s with their fundamental components.</p>
+				<p>
+					Detrás de los elementos primitivos fáciles de usar, <br/> A-Frame se basa en una arquitectura componente - entidad. <br/> Descomponga los elementos primitivos en el ejemplo de <em>Hello, WebVR</em> a <code>&lt;a-entity&gt;</code> s con sus componentes fundamentales.
+				</p>
 				</blockquote>
 				<p><a href="https://glitch.com/~aframe-school-ecs" target="_blank" class="cta-button glitch">Remix on Glitch</a>  <!-- --></p>
-				<ol>
-				<li>Convert <code>&lt;a-box&gt;</code> to <code>&lt;a-entity&gt;</code> with <a href="https://aframe.io/docs/0.5.0/components/geometry.html">geometry component</a> and <a href="https://aframe.io/docs/0.5.0/components/material.html">material component</a>. Configure the geometry component to be <code>primitive: box</code></li>
+			</section>
+			
+			
+			
+			<section>
+				<h2>Entidad-Componente</h2>
+				
+				<ol style="font-size: 24px;">
+				<li>Convertir <code>&lt;a-box&gt;</code> a <code>&lt;a-entity&gt;</code> con <a href="https://aframe.io/docs/0.5.0/components/geometry.html">el componente geometry</a> y <a href="https://aframe.io/docs/0.5.0/components/material.html">material component</a>. Configura la geometria del componente para ser de tipo <code>primitive: box</code></li>
 				<li>Convert <code>&lt;a-sphere&gt;</code> to <code>&lt;a-entity&gt;</code> with geometry component and material component. Configure the geometry component to be <code>primitive: sphere</code></li>
 				<li>Convert <code>&lt;a-cylinder&gt;</code> to <code>&lt;a-entity&gt;</code> with geometry component and material component. Configure the geometry component to be <code>primitive: cylinder</code></li>
 				<li>Convert <code>&lt;a-plane&gt;</code> to <code>&lt;a-entity&gt;</code> with geometry component and material component. Configure the geometry component to be <code>primitive: plane</code></li>
@@ -549,27 +563,58 @@ rotations</a>.</p>
 				</ol>
 				<p><a href="https://aframe-school-ecs.glitch.me/solution.html" target="_blank" class="cta-button">Ver Resultado</a>  <!-- --></p>
 			</section>
+			
+			
+			
 
 
 
 			<section>
-				<h2>Compose with Entity-Component — Add a Light Source Sphere</h2>
+				<h2>ENTIDAD-COMPONENTE - AÑADIR UNA ESFERA DE FUENTE DE LUZ</h2>
 				<blockquote>
-				<p>Use the entity-component pattern to add a sphere that also acts as a point
-				light source. Mix together the geometry, material, and light components to
-				compose this type of object.</p>
+				<p>Use el patrón entidad-componente para agregar una esfera que también actúe como una fuente de luz puntual. Mezcle la geometría, el material y los componentes de luz para componer este tipo de objeto.</p>
 				</blockquote>
-				<ol>
-				<li>Look for <code>&lt;a-entity id="lightSphere"&gt;</code></li>
-				<li>Attach the <a href="https://aframe.io/docs/0.5.0/components/geometry.html">geometry component</a> configured to use <code>primitive: sphere</code> to the entity</li>
-				<li>Attach the <a href="https://aframe.io/docs/0.5.0/components/material.html">material component</a> configured to use <code>color: #FFF</code> and <code>shader: flat</code> to the entity</li>
-				<li>Attach the <a href="https://aframe.io/docs/0.5.0/components/light.html">light component</a> configured to use <code>type: point</code> to the entity</li>
-				<li><strong>Extra Credit:</strong> Add the animation component from <a href="https://aframe.io/registry/">the Registry</a> via a <code>&lt;script&gt;</code> tag. Attach the animation configured to use <code>property: position</code> and <code>dir: alternate</code> and <code>loop: true</code> and provide a position value for <code>to: &lt;POSITION&gt;</code></li>
+				
+				<p>
+				<a href="https://glitch.com/~aframe-school-ecs-light-sphere" target="_blank" class="cta-button glitch">Remix en Glitch</a>
+				</p>
+				
+			</section>
+			
+			
+			
+			<section>
+				<h2>ENTIDAD-COMPONENTE - AÑADIR UNA ESFERA DE FUENTE DE LUZ</h2>
+				
+				<ol style="font-size: 24px;">
+				<li>Busque la entidad con Id <code>&lt;a-entity id="lightSphere"&gt;</code></li>
+				<li>Adjunte el <a href="https://aframe.io/docs/0.5.0/components/geometry.html">componente geometry</a> configurado para usar la <code>primitiva: sphere</code> a la entidad</li>
+				<li>Adjunte el <a href="https://aframe.io/docs/0.5.0/components/material.html">componente material</a> configurado para usar el <code>color: #FFF</code> y <code>shader: flat</code> a la entidad</li>
+				<li>Adjunte el <a href="https://aframe.io/docs/0.5.0/components/light.html">componente light</a> configurado para usar el <code>tipo: point</code> a la entidad</li>
+				<li><strong>Extra:</strong> Agregar el componente animacion del <a href="https://aframe.io/registry/">Registro</a> via a <code>&lt;script&gt;</code> tag. Adjunte la animacion configurada para usar la <code>propiedad: position</code> y <code>dir: alternate</code> and <code>loop: true</code> y provea un valor de posicion para el elemento <code> &lt;POSITION&gt;</code></li>
 				</ol>
-				<p><a href="https://glitch.com/~aframe-school-ecs-light-sphere" target="_blank" class="cta-button glitch">Remix on Glitch</a>  <!-- --></p>
-				<img class="stretch" src="https://cloud.githubusercontent.com/assets/674727/24060160/2c53a604-0b0f-11e7-9386-f83a3a9b4cfc.gif" style="height: 106px; width: 159px;">
+				
 				<p><a href="https://aframe-school-ecs-light-sphere.glitch.me/solution.html" target="_blank" class="cta-button">Ver Resultado</a>  <!-- --></p>
 			</section>
+			
+			
+			
+			<section>
+				<h2>ENTIDAD-COMPONENTE - AÑADIR UNA ESFERA DE FUENTE DE LUZ</h2>
+				
+				<img class="stretch" src="https://cloud.githubusercontent.com/assets/674727/24060160/2c53a604-0b0f-11e7-9386-f83a3a9b4cfc.gif" style="height: 106px; width: 159px;">
+				
+			</section>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 
 
 
@@ -579,31 +624,42 @@ rotations</a>.</p>
 			
 			<!-- ....................................................... -->
 			
+			<section>
+				<section><h2 id="extend-with-entity-component-mdash-from-the-registry">El registro</h2>
+					<blockquote>
+					<p><a href="https://aframe.io/registry/">El registro</a> es un excelente lugar para obtener componentes geniales que la comunidad ha agregado a A-Frame. Algo así como complementos de terceros. Encuentre componentes de la comunidad en el Registro, copie sus enlaces JS, inclúyalos a través de una etiqueta <code>&lt;script&gt;</code> y utilícelos directamente desde HTML.</p>
+					</blockquote>				
+					<p><a href="https://glitch.com/~aframe-school-registry" target="_blank" class="cta-button glitch">Remix on Glitch</a>  <!-- --></p>
+					
+				</section>
+				
+				
+				
+				
+				
+				
+				<section><h2 id="extend-with-entity-component-mdash-from-the-registry">Ampliar Endiad-Componente — Desde el registro</h2>
+					
+					<ol style="font-size: 24px;">
+					<li>Inlcuir <a href="https://www.npmjs.com/package/aframe-particle-system-component">Sistema de particulas</a>. Adjuntar la entidad
+					<code>&lt;a-entity&gt;</code> con el componente <code>particle-system</code> configurado en <code>preset: default</code>
+					y <code>preset: snow</code>.vAbrir el inspector para jugar con los valores</li>
+		
+					<li>Incluir <a href="https://www.npmjs.com/package/aframe-animation-component">Animation</a>. 
+		
+		Adjunte animación a la esfera para ajustar su escala configurando el componente de animación con la <code>propiedad: scale</code>, <code>loop: true</code>, and <code>to: 1.1 1.1 1.1</code></li>
+					<li>Incluir <a href="https://www.npmjs.com/package/aframe-outline-effect">Outline Effect</a>. 
+					Suelte el <code>&lt;script&gt;</code> y adjunte el componente de <code>outline</code> a la escena</li>
+					</ol>
+			<p><a href="https://aframe-school-registry.glitch.me/solution.html" target="_blank" class="cta-button">Ver Resultado</a>  <!-- --></p>
+				</section>
+				
+				
+				<section><h2 id="extend-with-entity-component-mdash-from-the-registry">Ampliar Endiad-Componente — Desde el registro</h2>
+					<img class="stretch" src="media/img/registryexample.gif" style="height: 132px; width: 198px;">
+				</section>
 			
-			<section><h2 id="extend-with-entity-component-mdash-from-the-registry">Extend with Entity-Component — From the Registry</h2>
-				<blockquote>
-				<p><a href="https://aframe.io/registry/">The Registry</a> is a great place to grab cool
-				components that the community has added to A-Frame. Sort of like third-party
-				plugins. Find community components from the Registry, copy their JS links,
-				include them via a <code>&lt;script&gt;</code> tag, and use them straight from HTML.</p>
-				</blockquote>
-				<ol>
-				<li>Include <a href="https://www.npmjs.com/package/aframe-particle-system-component">Particle
-				System</a>. Attach
-				<code>&lt;a-entity&gt;</code>s with <code>particle-system</code> components configured to <code>preset: default</code>
-				and <code>preset: snow</code>. Open the Inspector to play with the values!</li>
-				<li>Include <a href="https://www.npmjs.com/package/aframe-animation-component">Animation</a>. Attach
-				animation to the sphere to throb its scale by configuring <code>animation</code> component
-				with <code>property: scale</code>, <code>loop: true</code>, and <code>to: 1.1 1.1 1.1</code></li>
-				<li>Include <a href="https://www.npmjs.com/package/aframe-outline-effect">Outline Effect</a>. Drop in the
-				<code>&lt;script&gt;</code> and attach the <code>outline</code> component to the scene</li>
-				</ol>
-				<p><a href="https://glitch.com/~aframe-school-registry" target="_blank" class="cta-button glitch">Remix on Glitch</a>  <!-- --></p>
-				<img class="stretch" src="media/img/registryexample.gif" style="height: 132px; width: 198px;">
-				<p><a href="https://aframe-school-registry.glitch.me/solution.html" target="_blank" class="cta-button">Ver Resultado</a>  <!-- --></p>
 			</section>
-			
-			
 			<!-- ....................................................... -->
 	<section>
 				
@@ -727,33 +783,66 @@ Utilice <a href="https://developer.mozilla.org/docs/Web/API/EventTarget/addEvent
 			
 			
 		<section>
+	
+				
+		<section data-background-video="media/video/IronManHud.mp4" data-background-video-loop="true" data-background-video-muted="true">
+			<h1 id="virtual-reality" class="wheader">Interacciones del cursor basado en la mirada</h1>
+		</section>
+				
+		
+		<section>
+			<h2>Agregar la entidad Cursor</h2>
+			<blockquote>
+			<p>
+			Use el componente de <a href="https://aframe.io/docs/0.5.0/components/cursor.html"><code>cursor</code>
+			component</a> basado en la mirada para proporcionar la capacidad de interactuar con entidades (principalmente para teléfonos inteligentes). <a href="https://aframe.io/docs/0.5.0/guides/building-with-components.html">Lea acerca de cómo construir una galería de imágenes de 360 °</a>.</p>
+			</blockquote>
+			<p><a href="https://glitch.com/~aframe-school-cursor" target="_blank" class="cta-button glitch">Remix en Glitch</a>  <!-- --></p>
+		</section>
+		
 		
 		
 		<section>
-			<h2>Add Gaze-Based Cursor Interactions — Add Cursor Entity</h2>
-			<blockquote>
-			<p>Use the gaze-based <a href="https://aframe.io/docs/0.5.0/components/cursor.html"><code>cursor</code>
-			component</a> to provide
-			the ability to interact with entities (primarily for smartphones).  <a href="https://aframe.io/docs/0.5.0/guides/building-with-components.html">Read
-			about building a 360° image
-			gallery</a>.</p>
-			</blockquote>
-			<p><a href="https://glitch.com/~aframe-school-cursor" target="_blank" class="cta-button glitch">Remix on Glitch</a>  <!-- --></p>
-			<p>This lesson has all the event listeners hooked up already. We just need to add
-			an entity with the <code>cursor</code> component which will provide those events based on
-			user input.  Note these events are not provided by the browser, but through
-			A-Frame.</p>
-			<ol>
-			<li>Add <a href="https://aframe.io/docs/0.5.0/components/camera.html"><code>&lt;a-camera&gt;</code></a> entity.
-			Previously A-Frame was providing a default camera</li>
-			<li>Add <a href="https://aframe.io/docs/0.5.0/components/cursor.html"><code>&lt;a-cursor&gt;</code></a> entity
-			as a child underneath the camera entity</li>
-			<li>Drag the camera around the click on the panels on desktop. On smartphones,
-			stare at the panels to trigger clicks (i.e., gaze-based)</li>
-			</ol>
-			<img class="stretch" src="media/img/gaze.gif" style="height: 80px; width: 119.867px;">
+			<h2>Interacciones del cursor basado en la mirada — Add Cursor Entity</h2>
+			
+			<p>Esta lección tiene todos los oyentes del evento ya conectados. Solo necesitamos agregar una entidad con el componente del cursor que proporcionará esos eventos en función de la entrada del usuario. Tenga en cuenta que estos eventos no son proporcionados por el navegador, sino a través de A-Frame.</p>
+			
 			<p><a href="https://aframe-school-cursor.glitch.me/solution.html" target="_blank" class="cta-button glitch">Ver Resultado</a>  <!-- --></p>
 		</section>
+		
+		
+		<section>
+			<h2>Interacciones del cursor basado en la mirada — Add Cursor Entity</h2>
+						
+			<ol style="font-size: 24px;">
+			<li>Agregue la entidad <a href="https://aframe.io/docs/0.5.0/components/camera.html"><code>&lt;a-camera&gt;</code></a>.
+			Anteriormente, A-Frame proporcionaba una cámara predeterminada.</li>
+			
+			<li>Agregue la entidad <a href="https://aframe.io/docs/0.5.0/components/cursor.html"><code>&lt;a-cursor&gt;</code></a>
+			como hijo debajo de la entidad de la cámara</li>
+			<li>Arrastre la cámara alrededor del clic en los paneles del escritorio. En los teléfonos inteligentes, mire los paneles para activar clics (es decir, basado en la mirada)</li>
+			</ol>
+			<p><a href="https://aframe-school-cursor.glitch.me/solution.html" target="_blank" class="cta-button glitch">Ver Resultado</a>  <!-- --></p>
+		</section>	
+		
+		
+		<section>
+			<h2>Interacciones del cursor basado en la mirada — Add Cursor Entity</h2>
+			<img class="stretch" src="media/img/gaze.gif" style="height: 80px; width: 119.867px;">
+		</section>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 
 
