@@ -803,7 +803,7 @@ Utilice <a href="https://developer.mozilla.org/docs/Web/API/EventTarget/addEvent
 		
 		
 		<section>
-			<h2>Interacciones del cursor basado en la mirada — Add Cursor Entity</h2>
+			<h2>Interacciones del cursor basado en la mirada — Agregar la entidad Cursor</h2>
 			
 			<p>Esta lección tiene todos los oyentes del evento ya conectados. Solo necesitamos agregar una entidad con el componente del cursor que proporcionará esos eventos en función de la entrada del usuario. Tenga en cuenta que estos eventos no son proporcionados por el navegador, sino a través de A-Frame.</p>
 			
@@ -812,7 +812,7 @@ Utilice <a href="https://developer.mozilla.org/docs/Web/API/EventTarget/addEvent
 		
 		
 		<section>
-			<h2>Interacciones del cursor basado en la mirada — Add Cursor Entity</h2>
+			<h2>Interacciones del cursor basado en la mirada — Agregar la entidad Cursor</h2>
 						
 			<ol style="font-size: 24px;">
 			<li>Agregue la entidad <a href="https://aframe.io/docs/0.5.0/components/camera.html"><code>&lt;a-camera&gt;</code></a>.
@@ -827,43 +827,59 @@ Utilice <a href="https://developer.mozilla.org/docs/Web/API/EventTarget/addEvent
 		
 		
 		<section>
-			<h2>Interacciones del cursor basado en la mirada — Add Cursor Entity</h2>
+			<h2>Interacciones del cursor basado en la mirada — Agregar la entidad Cursor</h2>
 			<img class="stretch" src="media/img/gaze.gif" style="height: 80px; width: 119.867px;">
 		</section>
 		
 		
+	
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
-
 
 		<section>
-			<h2 id="add-gaze-based-cursor-interactions-mdash-handle-events">Add Gaze-Based Cursor Interactions — Handle Events</h2>
+			<h2 id="add-gaze-based-cursor-interactions-mdash-handle-events">Interacciones del cursor basado en la mirada - Manejar eventos</h2>
 			<blockquote>
-			<p>Use the <code>click</code>, <code>mouseenter</code>, <code>mouseleave</code> events provided by the gaze-based
-			<a href="https://aframe.io/docs/0.5.0/components/cursor.html"><code>cursor</code> component</a> to
-			change the properties of an object.</p>
+			<p>
+				Utilice los eventos <code>click</code>, <code>mouseenter</code>, <code>mouseleave</code> provistos por el <a href="https://aframe.io/docs/0.5.0/components/cursor.html">componente de <code>cursor</code></a> de mirada para cambiar las propiedades de un objeto.</p>
 			</blockquote>
-			<p>The Glitch code will have the project structure set up. We can add JavaScript
-			code inside the <code>handle-events</code> component, marked by the code comments.</p>
+			
+		</section>
+		
+		
+		
+
+		
+		
+		<section>
+			<h2 id="add-gaze-based-cursor-interactions-mdash-handle-events">Interacciones del cursor basado en la mirada - Manejar eventos</h2>
+					
+			<p>El código de Glitch tiene configurada la estructura del proyecto. Podemos agregar código JavaScript dentro del componente de eventos de identificador, marcado por los comentarios de código.</p>
 			<p><a href="https://glitch.com/~aframe-school-cursor-handler" target="_blank" class="cta-button glitch">Remix on Glitch</a>  <!-- --></p>
-			<ol>
-			<li>Attach our <code>controller-event-handler</code> to the cubes. We can attach to all of them at once through the mixin</li>
-			<li>Add an event listener to change the box's color on <code>mouseenter</code> event</li>
-			<li>Add an event listener to restore the box's color on <code>mouseleave</code> event</li>
+			
+		</section>
+		
+
+		<section>
+			<h2 id="add-gaze-based-cursor-interactions-mdash-handle-events">Interacciones del cursor basado en la mirada - Manejar eventos</h2>			
+			<ol style="font-size: 24px;">
+			<li>
+				Adjuntar nuestro <code>controller-event-handler</code> a los cubos. Podemos adjuntar a todos ellos a la vez a través de la mezcla.
+			</li>
+			<li>
+				Agregue un detector de eventos para cambiar el color del cuadro en el evento <code>mouseenter</code></li>
+			<li>
+				Agregue un detector de eventos para restaurar el color de la caja en un evento <code>mouseleave</code>
+			</li>
 			</ol>
-			<img class="stretch" src="media/img/gazehandler.gif" style="height: 106px; width: 133.442px;">
 			<p><a href="https://aframe-school-cursor-handler.glitch.me/solution.html" target="_blank" class="cta-button glitch">Ver Resultado</a>  <!-- --></p>
 		</section>
+		
+		
+		<section>
+			<h2 id="add-gaze-based-cursor-interactions-mdash-handle-events">Interacciones del cursor basado en la mirada - Manejar eventos</h2>
+			<img class="stretch" src="media/img/gazehandler.gif" style="height: 106px; width: 133.442px;">
+		</section>
+
+		
 
 
 		</section>	
@@ -876,55 +892,78 @@ Utilice <a href="https://developer.mozilla.org/docs/Web/API/EventTarget/addEvent
 			
 		<section>
 		
-		<section><h2 id="add-3d-models-mdash-gltf-model">Add 3D Models — glTF Model</h2>
+		<section><h2 id="add-3d-models-mdash-gltf-model">Agregar Modelos 3D — glTF Model</h2>
 			<blockquote>
-			<p>3D models are like the images of 3D and VR applications, although a bit
-			heavier. A 3D model is created beforehand in a 3D modeling program such as
-			<a href="https://www.blender.org/">Blender</a> and consists of vertices, textures,
-			materials. We recommend using <a href="https://github.com/KhronosGroup/glTF">glTF</a>, a
-			relatively new 3D file format standard tailored for the Web. glTF is like the
-			JPG of 3D models.</p>
+			<p>
+			Los modelos 3D son como las imágenes de aplicaciones 3D y VR, aunque un poco más pesadas. Un modelo 3D se crea de antemano en un programa de modelado 3D como <a href="https://www.blender.org/">Blender</a> y consta de vértices, texturas y materiales. Recomendamos utilizar <a href="https://github.com/KhronosGroup/glTF">glTF</a>, un estándar de formato de archivo 3D relativamente nuevo adaptado para la Web. <a href="https://github.com/KhronosGroup/glTF">glTF</a> es como el JPG de los modelos 3D.
+			</p>
 			</blockquote>
-			<p><a href="https://glitch.com/~aframe-school-gltf-model" target="_blank" class="cta-button glitch">Remix on Glitch</a>  <!-- --></p>
-			<ol>
-			<li>Add the <code>https://cdn.aframe.io/test-models/models/virtualcity/VC.gltf</code> to
-			the <code>&lt;a-asset-item id="cityModel"&gt;</code>'s <code>src</code> attribute to preload the model</li>
-			<li>Add <code>#cityModel</code> to the <code>&lt;a-gltf-model&gt;</code>'s <code>src</code> attribute to set and add the model</li>
+			<p><a href="https://glitch.com/~aframe-school-gltf-model" target="_blank" class="cta-button glitch">Remix on Glitch</a></p>
+		</section>
+		
+		
+		<section><h2 id="add-3d-models-mdash-gltf-model">Agregar Modelos 3D — glTF Model</h2>
+			
+			<ol style="font-size: 24px;">
+			<li>Agregue la url: <code>https://cdn.aframe.io/test-models/models/virtualcity/VC.gltf</code> a el elemento '<code>&lt;a-asset-item id="cityModel"&gt;</code>' en el atributo <code>src</code> para precargar el modelo.</li>
+			
+			<li>Agregue <code>#cityModel</code> a el <code>&lt;a-gltf-model&gt;</code> atributo <code>src</code> para setear el model en pantalla.</li>
 			</ol>
+			<p><a href="https://aframe-school-gltf-model.glitch.me/solution.html" target="_blank" class="cta-button">Ver Resultado</a>  <!-- --></p>
+		</section>
+		
+		
+		<section><h2 id="add-3d-models-mdash-gltf-model">Agregar Modelos 3D — glTF Model</h2>
+			
 			<img class="stretch" src="https://cloud.githubusercontent.com/assets/674727/24275925/63067074-0ff0-11e7-9440-7c855b9ea0fd.png" style="height: 158px; width: 290.938px;">
 			<p><a href="https://aframe-school-gltf-model.glitch.me/solution.html" target="_blank" class="cta-button">Ver Resultado</a>  <!-- --></p>
 		</section>
+		
+		
+		
+		
 
 
 		<section>
-			<h2>Add 3D Models — glTF Model Animations</h2>
+			<h2>Agregar Modelos 3D — glTF animaciones</h2>
 			<blockquote>
-			<p>Models can come with animations. The model provided above has many animations
-			of ships zooming across the city. In the previous Glitch, we've provided a simple
-			<code>play-all-model-animations</code> component that we can attach to our model to play
-			its animations. Continue working from your current Glitch.</p>
+			<p>
+			Los modelos pueden venir con animaciones. El modelo proporcionado anteriormente tiene muchas animaciones de barcos que se desplazan por la ciudad. En la versión anterior de Glitch, proporcionamos un componente simple <code>play-all-model-animations</code> que podemos adjuntar a nuestro modelo para reproducir sus animaciones. Continua trabajando con el ejemplo anterior.
+			</p>
 			</blockquote>
-			<ol>
-			<li>Include the <code>animation-mixer</code> component via a <code>&lt;script&gt;</code> in the
-			<code>&lt;head&gt;</code> after the A-Frame script. This component is currently in the Registry,
-			and may one day be included with A-Frame. <code>https://unpkg.com/aframe-extras.animation-mixer@3.4.0/dist/aframe-extras.animation-mixer.js</code></li>
-			<li>Attach the <code>animation-mixer</code> component to the <code>&lt;a-gltf-model&gt;</code> by
-			setting it via an HTML attribute <code>animation-mixer</code>. By default, this will play all
-			the animations of the model at once.</li>
-			</ol>
+
+		</section>
+		
+		
+		<section>
+			<h2>Agregar Modelos 3D — glTF animaciones</h2>
 			<img class="stretch" src="media/img/gltf.gif" style="height: 178px; width: 267px;">
+		</section>
+		
+		<section>
+			<h2>Agregar Modelos 3D — glTF animaciones</h2>
+			
+			<ol style="font-size: 24px;">
+			<li>Incluye el componente <code>animation-mixer</code> via <code>&lt;script&gt;</code> en la parte del
+			<code>&lt;head&gt;</code> despues del script de A-Frame. Este componente se encuentra en la pagina del Registro. 
+			<code>
+			https://unpkg.com/aframe-extras.animation-mixer@3.4.0/dist/aframe-extras.animation-mixer.js</code>
+			</li>
+			
+			<li>Adjunta el componente <code>animation-mixer</code> a el model <code>&lt;a-gltf-model&gt;</code> seteandolo via atributo de HTML del <code>animation-mixer</code>. Por defecto esto reproducirá todas las animaciones del model una por una.</li>
+			</ol>
 			<p><a href="https://aframe-school-gltf-model.glitch.me/solution2.html" target="_blank" class="cta-button">Ver Resultado</a>  <!-- --></p>
 		</section>
+		
+		
+		
+		
 
 
 		<section>
-			<h2>Add 3D Models — Uploading 3D Models</h2>
+			<h2>Agregando tus propios modelos 3D</h2>
 			<blockquote>
-			<p>If you have a model of your own, it can be tricky to upload it to a CDN since
-			it consists of multiple files that reference each other. So far the easiest
-			way we've found is to dump them into a GitHub repo, publish the repo's master
-			branch to GitHub Pages, and use <code>rawgit.com</code> to serve them. Alternatively,
-			set up Amazon S3. More to come.</p>
+			<p>Si tienes un modelo propio, puede ser difícil cargarlo en un CDN, ya que consta de varios archivos que se refieren entre sí. Hasta ahora, la forma más sencilla que hemos encontrado es volcarlos en un repositorio de GitHub, publicar la rama maestra del repositorio en las páginas de GitHub y usar rawgit.com para servirlos. Alternativamente, configurar Amazon S3. Más por venir.</p>
 			</blockquote>
 		</section>
 
@@ -941,46 +980,54 @@ Utilice <a href="https://developer.mozilla.org/docs/Web/API/EventTarget/addEvent
 		
 		<section>
 		
-			<h2 id="add-tracked-controls-mdash-add-hand-controls">Add Tracked Controls — Add Hand Controls</h2>
+			<h2 id="add-tracked-controls-mdash-add-hand-controls">Añadir controles de Movimiento</h2>
 			<blockquote>
-			<p>Tracked hand controls provide immersion and interactivity with hand
-			controllers. In the following Glitch, we've pre-recorded hand control
-			movements and button presses with <a href="https://github.com/dmarcos/aframe-motion-capture-components">A-Frame Motion
-			Capture</a>.
-			Now we just have to add the hands and handle the interaction events.</p>
+			<p>Los controles manuales rastreados proporcionan inmersión e interactividad con los controladores manuales. En la siguiente falla, hemos pregrabado los movimientos del control de la mano y los botones presionando con <a href="https://github.com/dmarcos/aframe-motion-capture-components">A-Frame Motion
+			Capture</a>. Ahora solo tenemos que añadir las manos y manejar los eventos de interacción.</p>
 			</blockquote>
-			<p><a href="https://glitch.com/~aframe-school-hand-controls" target="_blank" class="cta-button glitch">Remix on Glitch</a>  <!-- --></p>
-			<ol>
-			<li>Find <code>&lt;a-entity id="left"&gt;</code> and add the <a href="https://aframe.io/docs/0.5.0/components/hand-controls.html">hand-controls component</a>
-			configured to the left hand (<code>hand-controls="left"</code>)</li>
-			<li>Find <code>&lt;a-entity id="right"&gt;</code> and add the hand-controls component
-			configured to the right hand (<code>hand-controls="right"</code>)</li>
-			<li>View the result and see the hands moving with pre-recorded motions</li>
-			</ol>
+			
+			<p><a href="https://glitch.com/~aframe-school-hand-controls" target="_blank" class="cta-button glitch">Remix on Glitch</a> </p>
+		</section>
+		
+		
+		<section>
+		
+			<h2 id="add-tracked-controls-mdash-add-hand-controls">Añadir controles de Movimiento</h2>
+			
 			<img class="stretch" src="media/img/trackedcontrols.gif" style="height: 132px; width: 198px;">
+			
 			<p><a href="https://aframe-school-hand-controls.glitch.me/solution.html" target="_blank" class="cta-button">Ver Resultado</a>  <!-- --></p>
 		</section>
+		
+		
+		
+		
 
 
 
 		<section>
 
-			<h2 id="add-tracked-controls-mdash-add-interactivity">Add Tracked Controls — Add Interactivity</h2>
+			<h2 id="add-tracked-controls-mdash-add-interactivity">Agregar interactividad a los controles de Movimiento</h2>
 			<blockquote>
-			<p>There are many components to add interactivity to hand controls.
-			<a href="https://github.com/bryik/aframe-controller-cursor-component">controller-cursor</a>,
+			<p>
+			Hay muchos componentes para agregar interactividad a los controles manuales. 
+			<a href="https://github.com/bryik/aframe-controller-cursor-component">controller-cursor</a>, 
 			<a href="https://github.com/aframevr/aframe/tree/master/examples/showcase/tracked-controls/components">aabb-collider +
-			grab</a>,
-			<a href="https://github.com/wmurphyrd/aframe-super-hands-component">super-hands</a>. For
-			this lesson, we'll use controller-cursor that acts as a pointing laser for
-			each hand. Continue from your previous Glitch.</p>
+			grab</a>, 
+			<a href="https://github.com/wmurphyrd/aframe-super-hands-component">super-hands</a>.
+			</p>
 			</blockquote>
-			<ol>
-			<li>Add <code>controller-cursor</code> component to both hands</li>
-			<li>In the <code>controller-event-handler</code> component, change the color of the boxes
-			when they are hovered over with the <code>mouseenter</code> event, and restore the color
-			with the <code>mouseleave</code> event</li>
-			</ol>
+			
+			</p>
+		</section>
+		
+		
+		
+		
+		<section>
+
+			<h2 id="add-tracked-controls-mdash-add-interactivity">Agregar interactividad a los controles de Movimiento</h2>
+				
 			<img class="stretch" src="media/img/trackedcontrols2.gif" style="height: 256px; width: 382.724px;">
 			<p><a href="https://aframe-school-hand-controls.glitch.me/solution2.html" target="_blank" class="cta-button">Ver Resultado</a>  <!-- --></p>
 		</section>
@@ -1008,15 +1055,42 @@ Utilice <a href="https://developer.mozilla.org/docs/Web/API/EventTarget/addEvent
 			
 			
 		<!-- ........................................................ -->	
-			
-			
-		<section data-background="media/img/blackvr.jpg" data-background-image="media/img/blackvr.jpg"  ><!-- Title slide. -->
-				
-				  
-				  <h5>Sitio web personal sobre tecnologías, juegos y eventos</h5>
-				  <p class="talk-info">
-					<b><a href="https://daviddagb2.github.io/">daviddagb2.github.io</a></b>
-				  </p>
+		<section>
+		
+		<section data-background="media/img/bannerblog.jpg" data-background-image="media/img/blackvr.jpg"  ><!-- Title slide. -->
+			<h1 id="virtual-reality" class="wheader" style="background-color: black;">Blog personal</h1>
+			 <p class="talk-info"><b><a href="https://blanchardspace.wordpress.com/" style="background-color: white;color: blue;">https://blanchardspace.wordpress.com/</a><br/></b>
+			 <br/>
+			 <b><a href="https://twitter.com/daviddagbx" style="background-color: white;color: blue;">@daviddagbx</a></b>			 
+			 </p>
+		</section>
+		
+		
+		<section data-background="media/img/bgitch.png" data-background-image="media/img/blackvr.jpg"  ><!-- Title slide. -->
+			<h1 id="virtual-reality" class="wheader" style="background-color: black;">Videojuegos</h1>
+			 			 
+			 <img class="stretch" src="media/img/bannerpromo.jpg" style="height: 256px; width: 382.724px;">
+			 
+			 <p class="talk-info"><b><a href="https://riphunter.itch.io/" style="background-color: white;color: blue;">https://riphunter.itch.io/</a><br/></b>
+			 <br/>
+			 			 
+			 </p>
+		</section>
+		
+		
+		
+		<section data-background="media/img/mozilla-ni-header.jpg" data-background-image="media/img/blackvr.jpg"  ><!-- Title slide. -->
+			<h1 id="virtual-reality" class="wheader" style="background-color: black;">Mozilla Nicaragua</h1>
+			 			 
+			 <img class="stretch" src="media/img/mozillapromo.jpg" style="height: 256px; width: 382.724px;">
+			 
+			 <p class="talk-info"><b><a href="https://mozilla-ni.org/" style="background-color: white;color: blue;">https://mozilla-ni.org/</a><br/></b>
+			 <br/>
+			 			 
+			 </p>
+		</section>
+		
+		
 		</section>
 				
 		<!-- ........................................................ -->		
